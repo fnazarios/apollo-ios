@@ -62,7 +62,7 @@ open class URLSessionClient: NSObject, URLSessionDelegate, URLSessionTaskDelegat
   ///   - sessionConfiguration: The `URLSessionConfiguration` to use to set up the URL session.
   ///   - callbackQueue: [optional] The `OperationQueue` to tell the URL session to call back to this class on, which will in turn call back to your class. Defaults to `.main`.
   ///   - sessionDescription: [optional] A human-readable string that you can use for debugging purposes.
-  public init(sessionConfiguration: URLSessionConfiguration = .default,
+  public init(sessionConfiguration: URLSessionConfiguration,
               callbackQueue: OperationQueue? = .main,
               sessionDescription: String? = nil) {
     super.init()
