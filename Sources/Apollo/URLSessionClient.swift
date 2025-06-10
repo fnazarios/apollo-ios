@@ -68,7 +68,8 @@ open class URLSessionClient: NSObject, URLSessionDelegate, URLSessionTaskDelegat
     super.init()
       
     DispatchQueue.main.async {
-        let session = URLSession(configuration: sessionConfiguration,
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config,
                                delegate: self,
                                delegateQueue: callbackQueue)
         session.sessionDescription = sessionDescription
