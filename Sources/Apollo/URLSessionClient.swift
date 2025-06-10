@@ -67,11 +67,13 @@ open class URLSessionClient: NSObject, URLSessionDelegate, URLSessionTaskDelegat
               sessionDescription: String? = nil) {
     super.init()
       
-    let session = URLSession(configuration: sessionConfiguration, 
-                             delegate: self,
-                             delegateQueue: callbackQueue)
-    session.sessionDescription = sessionDescription
-    self.session = session
+    DispatchQueue.main.async {
+        let session = URLSession(configuration: sessionConfiguration,
+                               delegate: self,
+                               delegateQueue: callbackQueue)
+        session.sessionDescription = sessionDescription
+        self.session = session
+      }
   }
   
   /// Cleans up and invalidates everything related to this session client.
